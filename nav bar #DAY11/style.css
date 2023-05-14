@@ -1,0 +1,118 @@
+/* start global rules */
+* {
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0088FF;
+    font-family: 'Poppins', sans-serif;
+}
+ul {
+    list-style: none;
+    padding: 0;
+
+}
+/* end global rules */
+/* start nav bar */
+ul {
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    height: 7vh;
+    padding: 0 15px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.314);
+    position: relative;
+    width: 350px;
+    transition: 0.3s;
+}
+ul li {
+    margin-right: 25px;
+    text-transform: capitalize;
+    opacity: 1;
+    transition: 0.3s;
+}
+ul div {
+    width: 20px;
+    height: 23px;
+    background-color: transparent;
+    position: absolute;
+    cursor: pointer;
+    right: 7px;
+    top: 47%;
+}
+ul div::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: inherit;
+    top: 0;
+    transform: rotate(45deg);
+    left: 0;
+    background-color: #0088FF;
+}
+ul div::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: inherit;
+    top: 0;
+    transform: rotate(-45deg);
+    left: 0;
+    background-color: #0088FF;
+}
+@keyframes closeone {
+    0% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(-180deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes closetwo {
+    0% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(0deg);
+        top: 90%;
+    }
+}
+@keyframes closeposition {
+    0% {
+        right: 7px;
+    }
+    100%{
+        right: 50%;
+        top: auto;
+        transform: translateX(50%);
+        background-image: linear-gradient(to top, transparent 0%, transparent 49%, #0088FF 50%, #0088FF 55%, transparent 50%, transparent 100%);
+    }
+}
+
+.close {
+    animation: closeposition 0.3s forwards ease-in;
+}
+.close::before {
+    animation: closetwo 0.3s forwards ease-in;
+}
+.close::after {
+    animation: closeone 0.3s forwards ease-in;
+}
+.width {
+    width: 7vw;
+}
+.opacity {
+    opacity: 0;
+}
+/* end nav bar */
